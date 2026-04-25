@@ -3,23 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ram Kaithwas </title>
+<title>Ram Kaithwas</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 <style>
+
+/* ===== VARIABLES ===== */
 :root{
     --bg1:#141e30;
     --bg2:#243b55;
     --text:#ffffff;
     --card:rgba(255,255,255,0.08);
     --accent:#00f7ff;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body.light{
@@ -29,11 +26,16 @@ body.light{
     --card:#ffffff;
 }
 
+/* ===== RESET ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -42,43 +44,11 @@ body{
     transition:0.4s ease;
 }
 
-/* GREETING OVERLAY */
-.greeting-overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:linear-gradient(135deg,var(--bg1),var(--bg2));
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:60px;
-    font-weight:700;
-    z-index:9999;
-    transition:opacity 1.5s ease, visibility 1.5s ease;
+img{
+    max-width:100%;
 }
 
-.greeting-overlay span{
-    color:var(--accent);
-}
-
-.greeting-overlay.hide{
-    opacity:0;
-    visibility:hidden;
-}
-
-/* MAIN WRAPPER */
-.main-wrapper{
-    opacity:0;
-    transition:opacity 1.5s ease;
-}
-
-.main-wrapper.show{
-    opacity:1;
-}
-
-/* NAV */
+/* ===== NAV ===== */
 nav{
     display:flex;
     justify-content:space-between;
@@ -86,7 +56,6 @@ nav{
     padding:20px 10%;
 }
 
-/* TOGGLE */
 .theme-toggle{
     width:60px;
     height:30px;
@@ -101,7 +70,7 @@ nav{
 .toggle-circle{
     width:22px;
     height:22px;
-    background:rgb(71, 174, 176);
+    background:#00f7ff;
     border-radius:50%;
     display:flex;
     align-items:center;
@@ -109,16 +78,17 @@ nav{
     transition:0.4s;
 }
 
-body.light .theme-toggle{ background:#3585ae; }
-body.light .toggle-circle{ transform:translateX(30px); }
+body.light .toggle-circle{
+    transform:translateX(30px);
+}
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:80px 10%;
-    min-height:85vh;
+    min-height:80vh;
 }
 
 .hero-text h1{
@@ -131,161 +101,124 @@ body.light .toggle-circle{ transform:translateX(30px); }
 
 .hero-text p{
     font-size:20px;
-    margin:10px 0 30px 0;
+    margin:10px 0 30px;
 }
 
-/* BUTTONS */
 .hero-buttons{
     display:flex;
     gap:20px;
 }
 
 .btn{
-    padding:12px 28px;
+    padding:12px 25px;
     border-radius:30px;
+    border:2px solid var(--accent);
+    color:var(--accent);
     text-decoration:none;
-    font-weight:600;
     transition:0.3s;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
 }
 
-/* Resume */
-.btn-resume{
-    border:2px solid var(--accent);
-    color:var(--accent);
-}
-
-.btn-resume:hover{
+.btn:hover{
     background:var(--accent);
     color:#000;
-    box-shadow:0 0 20px var(--accent);
 }
 
-/* Other Socials Button */
-.btn-github{
-    border:2px solid var(--accent);
-    color:var(--accent);
-}
-
-.btn-github:hover{
-    background:var(--accent);
-    color:#000;
-    box-shadow:0 0 20px var(--accent);
-}
-
-/* PROFILE IMAGE */
-.hero-img img{
-    width:320px;
-    border-radius:50%;
-    animation:floatAvatar 5s ease-in-out infinite;
-    box-shadow:0 20px 40px rgba(0,0,0,0.5);
-}
-
-@keyframes floatAvatar{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-20px);}
-    100%{transform:translateY(0);}
-}
-
-/* SKILLS */
-.skills{
-    padding:80px 10%;
-    text-align:center;
-    overflow:hidden;
-}
-
-.skills h2{
-    margin-bottom:40px;
-}
-.skill-slider{
-    overflow:hidden;
-}
-
-.skill-track{
-    display:flex;
-    gap:40px;
-    width:max-content;
-    animation:scrollLeft 30s linear infinite;
-}
-
-.skill-box{
-    background:var(--card);
-    padding:25px;
-    width:150px;
-    border-radius:15px;
-    text-align:center;
-    flex-shrink:0;
-}
-
-.skill-box i{
-    font-size:40px;
-    margin-bottom:10px;
-}
-@keyframes scrollLeft{
-    0%{ transform:translateX(0); }
-    100%{ transform:translateX(-50%); }
-}
-
-/* PROJECTS */
+/* ===== PROJECTS ===== */
 .projects{
     padding:80px 10%;
     text-align:center;
 }
 
 .project-container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
 }
 
 .project-card{
     background:var(--card);
-    width:300px;
-    padding:25px;
+    padding:20px;
     border-radius:15px;
-    transition:0.4s;
-}
-
-.project-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 20px var(--accent);
-}
-
-/* SOCIAL SECTION */
-.social{
-    text-align:center;
-    margin:60px 0;
-}
-
-.social a{
-    margin:0 20px;
-    font-size:28px;
-    color:var(--accent);
     transition:0.3s;
 }
 
-.social a:hover{
-    transform:translateY(-5px) scale(1.2);
-    text-shadow:0 0 15px var(--accent);
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 15px var(--accent);
 }
 
-footer{
+/* ===== SKILLS ===== */
+.skills{
+    padding:80px 10%;
     text-align:center;
-    padding:20px;
 }
+
+.skill-track{
+    display:flex;
+    overflow:auto;
+    gap:20px;
+    padding:10px;
+}
+
+.skill-box{
+    min-width:120px;
+    background:var(--card);
+    padding:20px;
+    border-radius:10px;
+}
+
+/* ===== SOCIAL ===== */
+.social{
+    text-align:center;
+    margin:40px 0;
+}
+
+.social a{
+    margin:0 15px;
+    font-size:24px;
+    color:var(--accent);
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:768px){
+
+    nav{
+        padding:15px 20px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:40px 20px;
+    }
+
+    .hero-text h1{
+        font-size:30px;
+    }
+
+    .hero-text p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero img{
+        width:220px;
+        margin-top:20px;
+    }
+
+    section{
+        padding:40px 20px !important;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
-
-<div class="greeting-overlay" id="greeting">
-    Hello there! <span>👋</span>
-</div>
-
-<div class="main-wrapper" id="mainContent">
 
 <nav>
     <h2>~ My_Portfolio :</h2>
@@ -299,288 +232,53 @@ footer{
 <section class="hero">
     <div class="hero-text">
         <h1>Hi, I'm <span>Ram Kaithwas</span></h1>
-        <p>MERN Stack Developer | Cloud Associate Engineer</p>
+        <p>MERN Stack Developer | Cloud Engineer</p>
 
         <div class="hero-buttons">
-            <a href="resume.pdf" target="_blank" class="btn btn-resume">
-    <i class="fa-solid fa-file"></i> View Resume
-</a>
-
-            <a href="#projects" class="btn btn-github">
-                <i class="fa-solid fa-briefcase"></i> projects
-            </a>
-
-            <!-- UPDATED BUTTON -->
-            <a href="#socials" class="btn btn-github">
-                <i class="fa-solid fa-share-nodes"></i> Other Socials
-            </a>
+            <a href="#" class="btn">Resume</a>
+            <a href="#projects" class="btn">Projects</a>
+            <a href="#socials" class="btn">Socials</a>
         </div>
     </div>
 
-    <div class="hero-img">
-        <img src="profile.png">
-    </div>
+    <img src="https://via.placeholder.com/300" alt="profile">
 </section>
 
-<section class="projects">
-    <h2>Education</h2>
+<section class="projects" id="projects">
+    <h2>Projects</h2>
+
     <div class="project-container">
-
-        <!-- Bachelor's Degree -->
-        <div class="project-card">
-            <h3>Bachelor of Engineering (B.E.)</h3>
-            <p>
-                <strong>Sant Gadge Baba Universsity</strong><br><br>
-                • Major - Electronics and Telecommunications<br>
-                • Sipna COET <br>
-                • CGPA - 6.5 <br>
-                • Amravati - 444601
-            </p>
-        </div>
-
-        <!-- 12th HSC -->
-        <div class="project-card">
-            <h3>Higher Secondary Certificate (HSC)</h3>
-            <p>
-                <strong>Science - General</strong><br><br>
-                • PCMB group<br>
-                • Darda Junior Collage <br>
-                • Percentage - 76%<br>
-                • Yavatmal - 445001
-                
-            </p>
-        </div>
-
-        <!-- 10th SSC -->
-        <div class="project-card">
-            <h3>Secondary School Certificate (SSC)</h3>
-            <strong>Maharstra State Board</strong><br><br>
-            <p>
-              
-                
-                • Gaints English Medium School <br>
-                • Percentage - 68% <br>
-                • Yavatmal - 445001
-            </p>
-        </div>
-
+        <div class="project-card">MERN Auth System</div>
+        <div class="project-card">AI Robot</div>
+        <div class="project-card">Task Manager</div>
     </div>
 </section>
 
 <section class="skills">
-    <h2>Tech Stack</h2>
-    <div class="skill-slider">
-        <div class="skill-track">
-            <div class="skill-box"><i class="devicon-react-original colored"></i><h4>React</h4></div>
-            <div class="skill-box"><i class="devicon-nodejs-plain colored"></i><h4>Node</h4></div>
-            <div class="skill-box"><i class="devicon-express-original"></i><h4>Express</h4></div>
-            <div class="skill-box"><i class="devicon-mongodb-plain colored"></i><h4>MongoDB</h4></div>
-            <div class="skill-box"><i class="devicon-azure-plain colored"></i><h4>Azure</h4></div>
-            <div class="skill-box"><i class="fa-brands fa-microsoft"></i><h4>Intune</h4></div>
-            <div class="skill-box"><i class="devicon-docker-plain colored"></i><h4>Docker</h4></div>
-            <div class="skill-box"><i class="devicon-git-plain colored"></i><h4>Git</h4></div>
-            <div class="skill-box"><i class="devicon-googlecloud-plain colored"></i><h4>GCP</h4></div>
+    <h2>Skills</h2>
 
-            <!-- duplicate -->
-            <div class="skill-box"><i class="devicon-react-original colored"></i><h4>React</h4></div>
-            <div class="skill-box"><i class="devicon-nodejs-plain colored"></i><h4>Node</h4></div>
-            <div class="skill-box"><i class="devicon-express-original"></i><h4>Express</h4></div>
-            <div class="skill-box"><i class="devicon-mongodb-plain colored"></i><h4>MongoDB</h4></div>
-            <div class="skill-box"><i class="devicon-azure-plain colored"></i><h4>Azure</h4></div>
-            <div class="skill-box"><i class="fa-brands fa-microsoft"></i><h4>Intune</h4></div>
-            <div class="skill-box"><i class="devicon-docker-plain colored"></i><h4>Docker</h4></div>
-            <div class="skill-box"><i class="devicon-git-plain colored"></i><h4>Git</h4></div>
-            <div class="skill-box"><i class="devicon-googlecloud-plain colored"></i><h4>GCP</h4></div>
-        </div>
-    </div>
-</section>
-<section class="projects">
-    <h2>Internships</h2>
-    <div class="project-container">
-
-        <!-- MERN STACK -->
-        <div class="project-card">
-            <h3>MERN Stack Developer</h3>
-            <p>
-                <strong>GeeksforGeeks</strong><br><br>
-                • Developed full-stack web applications using React, Node.js, Express & MongoDB<br>
-                • Designed RESTful APIs and implemented CRUD operations<br>
-                • Integrated authentication and protected routes<br>
-                • Improved UI responsiveness and performance optimization<br>
-                • Worked with Git for version control
-            </p>
-        </div>
-
-        <!-- NODE + EXPRESS + MONGO -->
-        <div class="project-card">
-            <h3>Node + Express + MongoDB</h3>
-            <p>
-                <strong>Knowledge Gate</strong><br><br>
-                • Built scalable backend services using Node.js & Express<br>
-                • Designed MongoDB schemas and database relationships<br>
-                • Implemented JWT-based authentication<br>
-                • Developed secure API endpoints<br>
-                • Handled error management and middleware integration
-            </p>
-        </div>
-
-        <!-- CLOUD ASSOCIATE -->
-        <div class="project-card">
-            <h3>Cloud Associate Enginner</h3>
-            <p>
-                <strong>Google Developer Club</strong><br><br>
-                • Gained hands-on experience in cloud fundamentals<br>
-                • Worked with deployment models and virtualization concepts<br>
-                • Understood infrastructure management principles<br>
-                • Learned cloud security and IAM basics<br>
-                • Explored containerization and DevOps concepts
-            </p>
-        </div>
-
-        <!-- INTUNE ADMIN -->
-        <div class="project-card">
-            <h3>Intune Enterprise Solutions</h3>
-            <p>
-                <strong>Microsoft Intune Administration</strong><br><br>
-                • Device Compliance Policies<br>
-                • Governance & Conditional Access<br>
-                • Security & Restriction Profiles<br>
-                • Application Deployment & Management<br>
-                • Endpoint Configuration & Monitoring
-            </p>
-        </div>
-
-        <div class="project-card">
-    <h3>Data Analyst Intern</h3>
-    <p>
-        <strong>Data Analytics Internship</strong><br><br>
-        • Collected, cleaned, and analyzed structured datasets<br>
-        • Performed data visualization using Power BI / Tableau<br>
-        • Wrote SQL queries for data extraction and reporting<br>
-        • Worked with diffrent pthon Libraries such as Pandas, Numpy etc<br>
-    </p>
-</div>
-
-    </div>
-</section>
-<section class="projects" id="projects">
-    <h2>Projects</h2>
-    <div class="project-container">
-        <div class="project-card">
-    <h3>MERN Authentication System</h3>
-    <p>
-        Secure full-stack authentication system using MERN stack.<br>
-        • JWT-based login & signup<br>
-        • Password hashing with bcrypt<br>
-        • Protected routes & role-based access<br>
-        • REST API integration with MongoDB<br>
-    </p>
-    <a href="https://github.com/Ramjianonmyous" target="_blank" class="btn btn-github" style="margin-top:15px;">
-    <i class="fa-brands fa-github"></i> View Code
-</a>
-</div>
-
-<div class="project-card">
-    <h3>AI Museum Guide Robot</h3>
-    <p>
-        Smart semi-automatic robot for museum assistance.<br>
-        • Uses Machine Learning & OpenCV for object detection<br>
-        • Speech-to-text & text-to-speech interaction<br>
-        • ESP32-based hardware control system<br>
-        • Provides real-time guided information to visitors<br>
-    </p>
-    <a href="https://github.com/Ramjianonmyous" target="_blank" class="btn btn-github" style="margin-top:15px;">
-    <i class="fa-brands fa-github"></i> View Code
-</a>
-</div>
-        <div class="project-card">
-    <h3>Intune Device Manager</h3>
-    <p>
-        Enterprise endpoint management using Microsoft Intune.<br>
-        • Configured device compliance and security policies<br>
-        • Implemented conditional access and identity protection<br>
-        • Managed application deployment across enterprise devices<br>
-        • Monitored endpoint security and performance<br>
-    </p>
-    <a href="https://github.com/Ramjianonmyous" target="_blank" class="btn btn-github" style="margin-top:15px;">
-    <i class="fa-brands fa-github"></i> View Code
-</a>
-</div>
-      <div class="project-card">
-    <h3>Sales Dashboard System</h3>
-    <p>
-        Interactive dashboard for company sales analytics.<br>
-        • Real-time data visualization using charts & graphs<br>
-        • Sales tracking, revenue insights & performance metrics<br>
-        • Role-based access for sellers and admins<br>
-        • Built with scalable backend and responsive UI<br>
-    </p>
-    <a href="https://github.com/Ramjianonmyous" target="_blank" class="btn btn-github" style="margin-top:15px;">
-    <i class="fa-brands fa-github"></i> View Code
-</a>
-</div>
-
-<div class="project-card">
-    <h3>MERN Task Manager</h3>
-    <p>
-        Full-stack task management application using MERN.<br>
-        • Create, update, delete tasks with real-time sync<br>
-        • User authentication with JWT<br>
-        • Organized task categories & deadlines<br>
-        • Responsive UI with REST API integration<br>
-    </p>
-    <a href="https://github.com/Ramjianonmyous" target="_blank" class="btn btn-github" style="margin-top:15px;">
-    <i class="fa-brands fa-github"></i> View Code
-</a>
-</div>
-
-<div class="project-card">
-    <h3>HydroSoln Company - Firm Website</h3>
-    <p>
-        Professional website for fire safety consulting firm.<br>
-        • Modern landing page with service showcase<br>
-        • Project portfolio & client sections<br>
-        • Contact and consultation request system<br>
-        • Optimized UI/UX with responsive design<br>
-    </p>
-    <a href="https://ramjianonmyous.github.io/Hydro_Solutions/" target="_blank" class="btn btn-github" style="margin-top:15px;">
-    <i class="fa-brands fa-globe"></i> To Website
-</a>
-</div>
+    <div class="skill-track">
+        <div class="skill-box">React</div>
+        <div class="skill-box">Node</div>
+        <div class="skill-box">MongoDB</div>
+        <div class="skill-box">Docker</div>
     </div>
 </section>
 
-<!-- SOCIAL SECTION -->
 <section class="social" id="socials">
-    <h2> Socials</h2>
-    <a href="https://github.com/Ramjianonmyous" target="_blank"><i class="fa-brands fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/ram-kaithwas-329419257" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-    <a href="mailto:ramjikaithwas@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-    <a href="https://ramjianonmyous.github.io/Personal_Blog/" target="_blank"><i class="fa-solid fa-blog"></i></a>
+    <h2>Socials</h2>
+    <a href="#"><i class="fa-brands fa-github"></i></a>
+    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#"><i class="fa-solid fa-envelope"></i></a>
 </section>
 
-<footer>
-    ©Ram Kaithwas | All Right reserved
+<footer style="text-align:center;padding:20px;">
+    © Ram Kaithwas
 </footer>
 
-</div>
-
 <script>
-window.addEventListener("load", function(){
-    setTimeout(function(){
-        document.getElementById("greeting").classList.add("hide");
-        document.getElementById("mainContent").classList.add("show");
-    }, 1500);
-});
-
 function toggleMode(){
     document.body.classList.toggle("light");
-    const icon=document.querySelector(".toggle-circle i");
-    if(document.body.classList.contains("light")){
-        icon.classList.replace("fa-moon","fa-sun");
-    }else{
-        icon.classList.replace("fa-sun","fa-moon");
-    }
 }
 </script>
 
